@@ -110,7 +110,7 @@ def search_results(request):
         return render(request, 'search.html',{"message":message,"projects": searched_projects})
 
     else:
-        message = "You haven't searched for any term"
+        message = "There are curremtly no matches for what you are searching for"
         return render(request, 'search.html',{"message":message})
 
 def search_project(request,project_id):
@@ -120,18 +120,6 @@ def search_project(request,project_id):
     except ObjectDoesNotExist:
         raise Http404()
     return render(request, 'project_details.html', {'project':project})
-
-class ProjectList(APIView):
-    def get(self, request, format=None):
-        all_project =Project.objects.all()
-        serializers = ProjectSerializer(all_project, many=True)
-        return Response(serializers.data)
-
-class ProfileList(APIView):
-    def get(self, request, format=None):
-        all_profile =Profile.objects.all()
-        serializers = ProfileSerializer(all_profile, many=True)
-        return Response(serializers.data)
 
 
 
