@@ -1,15 +1,27 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-    <h1>Discover "it" projects</h1>
-    <a href="">Please click here to begin</a>
+{%extends 'base.html'%}
+{% load bootstrap3 %}
+{% load staticfiles %}
+{% load static%}
 
+{% block content %}
+{{block.super}}
+<div id="content" class="container">
+    <div class="row">
+        <div class="row">
+            {% for post in projects %}
+            <div class="col-md-4">
+                <h3 id="post-title" class="text-center">{{post.title}}</h3>
+                <a class="img-post" href="{% url 'projects' post.id %}"><img src="{{post.image.url}}" class="img-responsive" alt="Project"></a>
+            </div>
+            {% endfor %}
+        </div>
+        <br><br>
+        <div class="row">
+
+        </div>
     </div>
-</body>
-</html>
+
+
+</div>
+
+{% endblock %}

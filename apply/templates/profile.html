@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+{% load staticfiles %}
+
+{% block content %}
+{{block.super}}
+<link rel="stylesheet" href="../static/css/base.css">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {{request.user.username}}
+
+            <div class="col-md-4">
+
+                <img src="{{profile.photo.url}}" class="img" alt="Project" class="img-responsive">
+                <style>
+                    .img{
+                        border-radius: 50%;
+                    }
+                </style>
+
+                <p> Bio: {{profile.bio}}</p>
+            </div>
+
+
+
+            <h1 class="profile-user-name">{{profile.profile}}</h1>
+
+            <button class="btn profile-create-btn"><a href="/edit/profile">Edit profile</a> </button>
+        </div>
+    </div>
+    <br><br><br>
+    <hr>
+    <div class="row">
+        {% for project in projects %}
+
+        <div class="col-md-4">
+            <img src="{{project.image.url}}" class="img" alt="Project" class="img-responsive">
+            <style>
+                .img {
+                    height: 250px;
+                    width: 250px;
+                }
+            </style>
+        </div>
+        {% endfor%}
+
+    </div>
+
+
+</div>
+{% endblock %}
