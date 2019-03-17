@@ -11,7 +11,6 @@ class ProjectTestClass(TestCase):
         self.loise = .objects.create(username="loise")
         self.picture = Image.objects.create(image='image1', user=self.loise)
         self.comment = Review.objects.create(comment = 'so ugly')
-
         self.test_review = Review.objects.create(user=self.loise, image=self.image1, comment='so ugly')
         self.test_review.save()
 
