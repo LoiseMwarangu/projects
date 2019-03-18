@@ -36,9 +36,11 @@ DATABASES['default'].update(db_from_env)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 INSTALLED_APPS = [
+    'apply',
+    'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
-    'tinymce'
+    'tinymce',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',

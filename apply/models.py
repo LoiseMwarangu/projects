@@ -2,7 +2,7 @@ from django.db import models
 from tinymce.models import HTMLField
 from django.core.validators import URLValidator
 from django.contrib.auth.models import User
-from myproject.settings import TINYMCE_PROFILE
+
 
 class Profile(models.Model):
     profile = models.ForeignKey(User,on_delete=models.CASCADE, null = True)
