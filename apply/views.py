@@ -6,9 +6,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import ProjectForm,ProfileForm,VoteForm
 from django.contrib.auth import logout
 
-def logout(request):
-    logout(request)
-    return HttpResponseRedirect('/')
 @login_required(login_url='/accounts/login/')
 def index(request):
     current_user = request.user
