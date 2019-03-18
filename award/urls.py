@@ -22,5 +22,4 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('apply.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^tinymce/', include('tinymce.urls')),
 ]

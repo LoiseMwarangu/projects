@@ -18,16 +18,16 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <a class="navbar-brand" href="{% url 'indexPage' %}"> <span class="logo">Project~Pageant</span></a>
+                    <a class="navbar-brand" href="{% url 'indexPage' %}"> <span class="logo">Project Acme</span></a>
                 </div>
                 <div class="col-md-4" class="navbar navbar-right">
                     {% if user.is_authenticated %}
-                    <span><h2><a id="nav-link" class="navbar-brand" href="{% url 'new-project' %}">Add a project</a></h2></span>
-                    <span><h2><a id="nav-link" class="navbar-brand" href="{% url 'Profile' %}">Profile</a></h2></span>
+                    <span><h2><a id="nav-link" class="navbar-brand" href="{% url 'new-project' %}">Upload a project</a></h2></span>
+                    <span><h2><a id="nav-link" class="navbar-brand" href="{% url 'Profile' %}">My Profile</a></h2></span>
                     <a id="nav-link" class="navbar-brand" href="/logout/">log out</a>
                     {% else %}
                     <li>
-                        <a class="navbar-brand" href="/accounts/login" style="color:black;">login</a>
+                        <a class="navbar-brand" href="/accounts/login">login</a>
                     </li>
                 
                     {% endif %}

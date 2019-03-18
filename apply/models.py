@@ -1,5 +1,4 @@
 from django.db import models
-from tinymce.models import HTMLField
 from django.core.validators import URLValidator
 from django.contrib.auth.models import User
 

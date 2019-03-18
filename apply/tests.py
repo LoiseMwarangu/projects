@@ -40,9 +40,6 @@ class ProjectTestClass(TestCase):
         self.assertEqual(len(Review.objects.all()), 0)
 
 
-
-
-
 class ProfileTestClass(TestCase):
     # Set up method
     def setUp(self):
