@@ -1,6 +1,6 @@
 
 from django.test import TestCase
-from .models import Comments, Image, Profile
+from .models import Project, Profile
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 
@@ -10,35 +10,36 @@ class ProjectTestClass(TestCase):
 
         self.loise = .objects.create(title="loise")
         self.picture = Image.objects.create(screenshots='image1', user=self.loise)
-        self.description = Review.objects.create(description = 'so ugly')
-        
-        self.test_review = Review.objects.create(title=self.loise, screenshots=self.image1, description='so ugly')
-        self.test_review.save()
+        self.description = project.objects.create(description = 'so ugly')
+
+
+        self.test_project = project.objects.create(title=self.loise, screenshots=self.image1, description='so ugly')
+        self.test_project.save()
 
     #Testing instance
 
     def test_instance(self):
 
-        self.assertTrue(isinstance(self.test_reviews, Review))
+        self.assertTrue(isinstance(self.test_projects, project))
 
     #Testing Save method
 
     def test_save_method(self):
-        reviews = Review.objects.all()
-        self.assertTrue(len(reviews)>0)
+        projects = project.objects.all()
+        self.assertTrue(len(projects)>0)
 
-    def test_save_review(self):
-        self.assertEqual(len(Review.objects.all()), 1)
+    def test_save_project(self):
+        self.assertEqual(len(project.objects.all()), 1)
 
     # Tear down method
     def tearDown(self):
-        Review.objects.all().delete()
+        project.objects.all().delete()
 
         # Testing delete method
 
-    def test_delete_review(self):
-        self.test_review.delete()
-        self.assertEqual(len(Review.objects.all()), 0)
+    def test_delete_project(self):
+        self.test_project.delete()
+        self.assertEqual(len(project.objects.all()), 0)
 
 
 class ProfileTestClass(TestCase):
@@ -46,30 +47,30 @@ class ProfileTestClass(TestCase):
     def setUp(self):
 
 
-        self.nairobi = Location.objects.create(name="nairobi")
-        self.funny= tags.objects.create(name='funny')
+        self.nairobi = profile.objects.create(profile="nairobi")
+        self.funny=bio.objects.create(bio='funny')
+        self.picture = photo.objects.create(photo='image1', user=self.loise)
 
+        self.test_profile = profile.objects.create(profile='profilesef', description='This is a description', , )
 
-        self.test_image = Image.objects.create(image='imagesef', name='cat', description='This is a description', location=self.nairobi, )
-
-        self.test_image.save()
+        self.test_profile.save()
 
     def test_save_method(self):
-        self.test_image.save()
-        test_images = Image.objects.all()
-        self.assertTrue(len(test_images) > 0)
+        self.test_profile.save()
+        test_profiles = profile.objects.all()
+        self.assertTrue(len(test_profiles) > 0)
 
     # Testing save method
-    def test_save_image(self):
-        self.assertEqual(len(Image.objects.all()), 1)
+    def test_save_profile(self):
+        self.assertEqual(len(profile.objects.all()), 1)
 
     # Tear down method
     def tearDown(self):
-        Image.objects.all().delete()
+        profile.objects.all().delete()
 
-    def test_delete_image(self):
-        Image.delete_image_by_id(self.test_image.id)
-        self.assertEqual(len(Image.objects.all()), 0)
+    def test_delete_profile(self):
+        profile.delete_profile_by_id(self.test_profile.id)
+        self.assertEqual(len(profile.objects.all()), 0)
 
 
 
