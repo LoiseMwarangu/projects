@@ -8,10 +8,11 @@ class ProjectTestClass(TestCase):
 
     def setUp(self):
 
-        self.loise = .objects.create(username="loise")
-        self.picture = Image.objects.create(image='image1', user=self.loise)
-        self.comment = Review.objects.create(comment = 'so ugly')
-        self.test_review = Review.objects.create(user=self.loise, image=self.image1, comment='so ugly')
+        self.loise = .objects.create(title="loise")
+        self.picture = Image.objects.create(screenshots='image1', user=self.loise)
+        self.description = Review.objects.create(description = 'so ugly')
+        
+        self.test_review = Review.objects.create(title=self.loise, screenshots=self.image1, description='so ugly')
         self.test_review.save()
 
     #Testing instance
