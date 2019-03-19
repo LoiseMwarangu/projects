@@ -118,6 +118,17 @@ def search_project(request,project_id):
     except ObjectDoesNotExist:
         raise Http404()
     return render(request, 'project_details.html', {'project':project})
+    
+class ProjectList(APIView):
+    def get(self, request, format=None):
+        all_project =Project.objects.all()
+        serializers = ProjectSerializer(all_project, many=True)
+        return Response(serializers.data)
 
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        all_profile =Profile.objects.all()
+        serializers = ProfileSerializer(all_profile, many=True)
+        return Response(serializers.data)
 
 
