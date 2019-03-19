@@ -4,6 +4,7 @@ from .models import Project,Profile
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from .forms import ProjectForm,ProfileForm,VoteForm
+from django.contrib.auth import logout
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import ProjectSerializer, ProfileSerializer
@@ -120,7 +121,7 @@ def search_project(request,project_id):
     except ObjectDoesNotExist:
         raise Http404()
     return render(request, 'project_details.html', {'project':project})
-
+    
 class ProjectList(APIView):
     def get(self, request, format=None):
         all_project =Project.objects.all()
