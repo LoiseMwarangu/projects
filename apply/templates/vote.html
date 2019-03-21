@@ -1,5 +1,9 @@
 {% load bootstrap4 %}
 {% load staticfiles %}
+{% load ratings %}
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -15,19 +19,23 @@
     {%endif%}
 
     {% block styles %}
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+
     {% bootstrap_css %}
     {% endblock %}
 
 </head>
 
 <body>
-
+    <div class="container">
 
     <form action="/projects/{{project.id}}" method="post" enctype="multipart/form-data">
         {%csrf_token%}
         {% bootstrap_form form%}
         <input type="submit" class="btn btn-success btn-lg" value="submit">
     </form>
+
+    <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 
 
     {% block scripts %}
@@ -36,5 +44,35 @@
     {% endblock %}
 
 </body>
-
+<style>
+body{
+    background: url('http://www.baltana.com/files/wallpapers-5/Paint-Background-HD-Wallpaper-16472.jpg');
+    color: white;
+    background-repeat: no-repeat;
+    font-weight: bolder;
+    background-size: cover
+}
+a{
+    color: white
+}
+form
+    {
+        font-family: Raleway;
+        color: #FFF;
+        margin: 50px;
+        padding: 10em 3em;
+        text-align: center;
+        border: 2px solid white;
+        border-radius: 10px;
+        opacity: 0.6;
+        filter: alpha(opacity=80);
+        color: aliceblue;
+        background-color:black;
+    }
+    form:hover{
+        background-color:whitesmoke;
+        color: black;
+        border: 2px solid #000000;
+      }</style>
 </html>
+

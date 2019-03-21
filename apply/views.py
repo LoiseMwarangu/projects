@@ -9,12 +9,12 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import ProjectSerializer, ProfileSerializer
 
-@login_required(login_url='/accounts/login/')
 def index(request):
     current_user = request.user
     projects = Project.get_all()
     return render(request,'index.html',{'projects':projects})
-    
+
+@login_required(login_url='/accounts/login/')
 def project(request,project_id):
     project = Project.objects.get(id = project_id)
     rating = round(((project.userinterface + project.functionality )/2),2)
@@ -111,7 +111,7 @@ def search_results(request):
         return render(request, 'search.html',{"message":message,"projects": searched_projects})
 
     else:
-        message = "There are curremtly no matches for what you are searching for"
+        message = "There are curremtly no matches for what you are searching for."
         return render(request, 'search.html',{"message":message})
 
 def search_project(request,project_id):

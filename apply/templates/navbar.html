@@ -13,26 +13,23 @@
     {% endblock%}
 </head>
 <body>
-<div class="nav-bar">
     <nav class="navbar">
         <div class="container-fluid">
-        <div class="" class="navbar navbar-right">
+        <div class="container red highlightTextOut">
         {% if user.is_authenticated %}  <div class="container gray highlightTextOut">
         <a href="{% url 'indexPage' %}" alt="HOME"  >Project Acme</a>
         <a href="{% url 'new-project' %}" alt="NEW" >Add new project</a>
         <a href="{% url 'Profile' %}" alt="PROFILE" >My Profile</a>
-        <a href="/logout/" alt="LOGOUT" >Log Out</a>
+        <a href="/accounts/login/" alt="LOGOUT" >Log Out</a>
         {% else %}
         <a class="navbar-brand" href="/accounts/login">Login</a>
         {% endif %}
-    </div>
+   
       
 
        
-                </div>
-                        <br>
-                        <br>
-                        <br>
+          
+        
                     <form class="navbar-form" role="search" action="{% url 'search_results' %}">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="search project" name="project">
@@ -43,32 +40,17 @@
                     
                     </form>
                 </div>
-              
+            </div>  
 
             </div>
 
-
+        </div>
         </div>
     </nav>
-    <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <ul class="list-group">
-                        <li class="list-group-item text-center"><a href="/logout/">Log Out</a></li>
-                        <li class="list-group-item text-center"><a data-dismiss="modal">Cancel</a></li>
-                        <li class="list-group-item text-center"><a href="/admin">Admin</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
         <style
         >div.highlightTextOut a:before, div.highlightTextIn a:before
             {
                 position: absolute;
-                color: #FFF;
                 top: 0px;
                 left: 0px;
                 padding: 10px;
@@ -94,8 +76,12 @@
             div.highlightTextIn a:before
             {
                 transform: scale(1.2);
-            }</style>
-    </div>
+
+            }
+         
+
+</style>
+  
 </body>
 
 </html>

@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'css/base.css' %}" rel="stylesheet"> -->
     {% if title %}
     <title>PROJECT ACME{{title}}</title>
     {% else %}
@@ -29,4 +29,15 @@
     {% endblock %}
 </body>
 <style>
+   input{
+       color:black;
+       background-color: wheat;
+       font-weight: bolder;
+   }
+   input:hover{
+    background-color:whitesmoke;
+        color: black;
+        border: 2px solid #000000;
+   }
+    </style>
 

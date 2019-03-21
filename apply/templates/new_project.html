@@ -5,7 +5,6 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <title> New Project</title>
     {{form.media}}
     {% block styles %}
@@ -16,6 +15,7 @@
 </head>
 
 <body>
+        {% include "navbar.html" %}
     <div class="container">
 
 
@@ -32,7 +32,6 @@
 
                 </form>
             </div>
-            <div class="col-md-2"></div>
         </div>
     </div>
 
@@ -43,5 +42,35 @@
     {% endblock %}
 
 </body>
-
+<style>
+        body{
+            background: url('http://www.baltana.com/files/wallpapers-5/Paint-Background-HD-Wallpaper-16472.jpg');
+            color: white;
+            background-repeat: no-repeat;
+            font-weight: bolder;
+            background-size: cover;
+        }
+        a{
+            color: white
+        }
+        .row
+            {
+                font-family: Raleway;
+                color: #FFF;
+                margin: 50px;
+                padding: 10em 3em;
+                text-align: center;
+                border: 2px solid white;
+                border-radius: 10px;
+                opacity: 0.6;
+                filter: alpha(opacity=80);
+                color: aliceblue;
+                background-color:black;
+            }
+            .row:hover{
+                background-color:whitesmoke;
+        color: black;
+        border: 2px solid #000000;
+              }</style>
+        
 </html>
